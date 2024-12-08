@@ -46,18 +46,18 @@ const ThreeDSlider = () => {
       <div className="mx-auto w-[20rem] pb-5 text-center my-10 sm:w-[28rem] lg:w-[35rem] px-4">
         <h2 className="h2-title mb-8">Quality Products</h2>
         <p className="captions">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.        </p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
       </div>
 
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3} 
-        spaceBetween={30} 
-        loop={true} 
+        spaceBetween={30} // Space between slides
+        loop={true}
         autoplay={{
-          delay: 1000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         coverflowEffect={{
@@ -68,14 +68,28 @@ const ThreeDSlider = () => {
           slideShadows: true,
         }}
         pagination={{
-          clickable: true, 
+          clickable: true,
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          640: {
+            slidesPerView: 2, 
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3, 
+            spaceBetween: 30,
+          },
         }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
       >
         {slidesData.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-[260px] h-[360px] sm:w-[300px] sm:h-[400px] group">
+            <div className="relative w-[160px] h-[230px] sm:w-[300px] sm:h-[400px] group">
               <img
                 src={slide.image.src}
                 alt={slide.title}
