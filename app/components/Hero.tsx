@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import Heroimage from "../../public/assets/images/Hero-Image.png";
@@ -12,7 +12,8 @@ import Slider from "react-slick";
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const images: string[] = [Heroimage, Heroimage1, Heroimage2, Heroimage3];
+  // Use StaticImageData[] for type safety
+  const images: StaticImageData[] = [Heroimage, Heroimage1, Heroimage2, Heroimage3];
   const content: { h3: string; h1: string }[] = [
     { h3: "Welcome to TenTwenty Farms", h1: "From our Farms to your hands" },
     { h3: "Experience fresh and organic produce", h1: "Healthy food, healthy life" },
